@@ -1,0 +1,260 @@
+/**
+ * Farming Theme - Custom animations and styles for the gaming platform
+ */
+
+/* Fade in animation for modals */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scale in animation for modal content */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tile reveal pop animation */
+@keyframes tilePop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fruit Blast board entrance animation */
+@keyframes fruitBoardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fruit Blast tile pop animation */
+@keyframes fruitTilePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-2deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Fruit Blast preview pulse animation */
+@keyframes fruitPreviewPulse {
+  0%,
+  100% {
+    transform: scale(0.985);
+    filter: saturate(1);
+  }
+  50% {
+    transform: scale(1.02);
+    filter: saturate(1.12);
+  }
+}
+
+/* Fruit Blast selected card lift animation */
+@keyframes fruitCardLift {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fruit Blast line clear burst animation */
+@keyframes fruitCellBurst {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.15) rotate(4deg);
+    filter: brightness(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-8deg);
+    filter: brightness(0.5);
+  }
+}
+
+/* Subtle floating animation for hover states */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Flag wave animation */
+@keyframes flagWave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Utility classes for animations */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-tile-pop {
+  animation: tilePop 0.4s ease-out;
+}
+
+.animate-fruit-board-enter {
+  animation: fruitBoardEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-fruit-tile-pop {
+  animation: fruitTilePop 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.animate-fruit-preview-pulse {
+  animation: fruitPreviewPulse 1.15s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+.animate-fruit-card-lift {
+  animation: fruitCardLift 0.7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-fruit-cell-burst {
+  animation: fruitCellBurst 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-scale-in,
+  .animate-tile-pop,
+  .animate-float,
+  .animate-flag-wave,
+  .animate-fruit-board-enter,
+  .animate-fruit-tile-pop,
+  .animate-fruit-preview-pulse,
+  .animate-fruit-card-lift {
+    animation: none;
+  }
+}
+
+.animate-float {
+  animation: floatUp 0.5s ease-in-out;
+}
+
+.animate-flag-wave {
+  animation: flagWave 0.6s ease-in-out;
+}
+
+/* Custom grid columns for Tailwind */
+@layer utilities {
+  .grid-cols-16 {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+
+  .grid-cols-30 {
+    grid-template-columns: repeat(30, minmax(0, 1fr));
+  }
+}
+
+/* Smooth color transitions */
+.transition-colors {
+  transition-property: background-color, border-color, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Subtle box shadow for depth */
+.shadow-farming {
+  box-shadow: 0 4px 6px rgba(101, 163, 13, 0.1);
+}
+
+/* Green gradient background for farming theme */
+.bg-farming-gradient {
+  background: linear-gradient(135deg, #e2f5e2 0%, #f0fdf4 100%);
+}
+
+/* Text selection color */
+::selection {
+  background-color: rgba(168, 227, 69, 0.3);
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0fdf4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a5e76f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #84d187;
+}
+
+/* Remove default focus outline, use custom */
+*:focus-visible {
+  outline: 2px solid #a5e76f;
+  outline-offset: 2px;
+}
+
+/* Ensure buttons have proper cursor feedback */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
